@@ -39,6 +39,11 @@ export function GeneralInfo(props: IProps): React.ReactElement {
           </Typography>
           <br />
           <Typography>
+            The number of hashes you can store is limited by the size of your cache. If your cache gets full, surplus
+            hashes will be automatically sold for money.
+          </Typography>
+          <br />
+          <Typography>
             Hacknet Servers can be used to run scripts, just like regular servers. However, running scripts on a Hacknet
             Server reduces its hash rate by the percentage of its RAM you use.
           </Typography>
