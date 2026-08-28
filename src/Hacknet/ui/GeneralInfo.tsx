@@ -40,7 +40,7 @@ export function GeneralInfo(props: IProps): React.ReactElement {
           <br />
           <Typography>
             Hacknet Servers can be used to run scripts, just like regular servers. However, running scripts on a Hacknet
-            Server reduces its hash rate by the percentage of its RAM being used.
+            Server reduces its hash rate by the percentage of its RAM you use.
           </Typography>
         </>
       )}
