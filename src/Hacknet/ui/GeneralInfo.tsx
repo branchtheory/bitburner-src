@@ -16,14 +16,15 @@ export function GeneralInfo(props: IProps): React.ReactElement {
       <Typography>
         The Hacknet is a global, decentralized network of machines. It is used by hackers around the world to perform
         cyber attacks without the fear of being traced.
-        {!props.hasHacknetServers &&
-          " The machines that the Hacknet runs on are called Hacknet Nodes, specialised rigs that can share computing power anonymously. " +
-            "Hackers who use the network distribute a small percentage of their profits to the owners of Hacknet Nodes."}
       </Typography>
       <br />
       {!props.hasHacknetServers ? (
         <>
-          <Typography>You can purchase Hacknet Nodes to passively earn money.</Typography>
+          <Typography>
+            Here you can purchase Hacknet Nodes to passively earn money. Hacknet Nodes are the the machines that the
+            Hacknet runs on, specialised rigs that can share computing power anonymously. Hackers who use the network
+            distribute a small percentage of their profits to the owners of Hacknet Nodes.
+          </Typography>
           <br />
           <Typography>
             Each Node can be upgraded to increase its computing power and the profit you make from it.
