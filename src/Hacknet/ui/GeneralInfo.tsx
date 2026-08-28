@@ -33,15 +33,14 @@ export function GeneralInfo(props: IProps): React.ReactElement {
       ) : (
         <>
           <Typography>
-            Here you can purchase a Hacknet Server, an upgraded version of the Hacknet Node. Hacknet Servers will
-            perform computations and operations on the network, earning you hashes. Hashes can be spent on a variety of
-            different upgrades.
+            Here you can purchase Hacknet Servers, the upgraded version of the Hacknet Node. Hacknet Servers earn you
+            hashes by performing computations and operations on the network. Hashes can be spent on a variety of
+            upgrades.
           </Typography>
           <br />
           <Typography>
-            Hacknet Servers can also be used as servers to run scripts. However, running scripts on a server will reduce
-            its hash rate (hashes generated per second). A Hacknet Server's hash rate will be reduced by the percentage
-            of RAM that is being used by that Server to run scripts.
+            Hacknet Servers can be used to run scripts, just like regular servers. However, running scripts on a Hacknet
+            Server reduces its hash rate by the percentage of its RAM being used.
           </Typography>
         </>
       )}
