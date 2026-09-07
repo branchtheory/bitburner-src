@@ -21,23 +21,24 @@ export function GeneralInfo(props: IProps): React.ReactElement {
       {!props.hasHacknetServers ? (
         <>
           <Typography>
-            Here you can purchase Hacknet Nodes, specialised machines that contribute resources and computing power to the Hacknet. This allows you to take
-            a small percentage of profits from hacks performed on the network.
+            Here you can purchase Hacknet Nodes, specialised machines that contribute resources and computing power to
+            the Hacknet. They allow you to take a small percentage of profits from hacks performed on the network.
             <br />
             <br />
-            Purchasing Hacknet Nodes will earn you money passively. You can upgrade Nodes to increase their earnings.
+            Purchased Hacknet Nodes will passively earn you money. You can upgrade Hacknet Nodes to increase their
+            earnings.
           </Typography>
         </>
       ) : (
         <>
           <Typography>
-            Here you can purchase Hacknet Servers, the upgraded version of the Hacknet Node. Hacknet Servers earn you
+            Here you can purchase Hacknet Servers, an upgraded version of the Hacknet Node. Hacknet Servers earn you
             hashes by performing computations and operations on the network. Hashes can be spent on a variety of
             upgrades.
             <br />
             <br />
-            The number of hashes you can store is limited by the size of your cache pool. If you fill your caches, surplus
-            hashes will automatically be sold for money.
+            The number of hashes you can store is limited by the size of your cache pool. If you run out of cache space,
+            surplus hashes will automatically be sold for money.
             <br />
             <br />
             Hacknet Servers can be used to run scripts, just like regular servers. However, running scripts on a Hacknet
