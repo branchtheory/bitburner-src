@@ -196,8 +196,9 @@ function Root(props: IProps): React.ReactElement {
 
     // this is duplicate code with saving later.
     if (
-      ITutorial.currStep === iTutorialSteps.ScriptEditorEditAndSave ||
-      ITutorial.currStep === iTutorialSteps.ScriptEditorRam
+      ITutorial.isRunning &&
+      (ITutorial.currStep === iTutorialSteps.ScriptEditorEditAndSave ||
+        ITutorial.currStep === iTutorialSteps.ScriptEditorRam)
     ) {
       //Make sure filename + code properly follow tutorial
       if (currentScript.path !== tutorialScriptName) {
