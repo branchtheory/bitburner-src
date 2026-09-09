@@ -348,7 +348,7 @@ export class Terminal {
         throw new Error("Could not get n00dles server");
       }
 
-      const commandArrayMatches = (...rightCommand: (string | number)[]): boolean =>
+      const matchesCommandArray = (...rightCommand: (string | number)[]): boolean =>
         commandArray.length === rightCommand.length && commandArray.every((e, idx) => e === rightCommand[idx]);
 
       const errorMessageForBadCommand = "Wrong command. Try again.";
@@ -358,60 +358,60 @@ export class Terminal {
 
       switch (ITutorial.currStep) {
         case iTutorialSteps.TerminalScan:
-          isCorrect = commandArrayMatches("scan");
+          isCorrect = matchesCommandArray("scan");
           break;
 
         case iTutorialSteps.TerminalScanAnalyze:
-          isCorrect = commandArrayMatches("scan-analyze");
+          isCorrect = matchesCommandArray("scan-analyze");
           break;
 
         case iTutorialSteps.TerminalScanAnalyze2:
-          isCorrect = commandArrayMatches("scan-analyze", 2);
+          isCorrect = matchesCommandArray("scan-analyze", 2);
           break;
 
         case iTutorialSteps.TerminalConnect:
-          isCorrect = commandArrayMatches("connect", "n00dles") || commandArrayMatches("connect", n00dlesServ.hostname);
+          isCorrect = matchesCommandArray("connect", "n00dles") || matchesCommandArray("connect", n00dlesServ.hostname);
           break;
 
         case iTutorialSteps.TerminalAnalyze:
-          isCorrect = commandArrayMatches("analyze");
+          isCorrect = matchesCommandArray("analyze");
           break;
 
         case iTutorialSteps.TerminalNuke:
-          isCorrect = commandArrayMatches("run", "NUKE.exe");
+          isCorrect = matchesCommandArray("run", "NUKE.exe");
           break;
 
         case iTutorialSteps.TerminalManualHack:
-          isCorrect = commandArrayMatches("hack");
+          isCorrect = matchesCommandArray("hack");
           break;
 
         case iTutorialSteps.TerminalHackWeakenGrowMechanics:
-          isCorrect = ["hack", "weaken", "grow"].some((c) => commandArrayMatches(c));
+          isCorrect = ["hack", "weaken", "grow"].some((c) => matchesCommandArray(c));
           incrementStep = false;
           break;
 
         case iTutorialSteps.TerminalHome:
-          isCorrect = commandArrayMatches("home");
+          isCorrect = matchesCommandArray("home");
           break;
 
         case iTutorialSteps.TerminalNano:
-          isCorrect = commandArrayMatches("nano", tutorialScriptName);
+          isCorrect = matchesCommandArray("nano", tutorialScriptName);
           break;
 
         case iTutorialSteps.TerminalFree:
-          isCorrect = commandArrayMatches("free");
+          isCorrect = matchesCommandArray("free");
           break;
 
         case iTutorialSteps.TerminalRun:
-          isCorrect = commandArrayMatches("run", tutorialScriptName);
+          isCorrect = matchesCommandArray("run", tutorialScriptName);
           break;
 
         case iTutorialSteps.TerminalTail:
-          isCorrect = commandArrayMatches("tail", tutorialScriptName);
+          isCorrect = matchesCommandArray("tail", tutorialScriptName);
           break;
 
         case iTutorialSteps.TerminalLs:
-          if (commandArrayMatches("ls")) {
+          if (matchesCommandArray("ls")) {
             isCorrect = true;
           } else if (commandArray[0] === "1s") {
             this.error("Command '1s' not found. Did you mean 'ls' with a lowercase L?");
@@ -422,11 +422,11 @@ export class Terminal {
           break;
 
         case iTutorialSteps.TerminalScp:
-          isCorrect = commandArrayMatches("scp", tutorialScriptName, "n00dles");
+          isCorrect = matchesCommandArray("scp", tutorialScriptName, "n00dles");
           break;
 
         case iTutorialSteps.TerminalHelp:
-          isCorrect = commandArrayMatches("help");
+          isCorrect = matchesCommandArray("help");
           break;
 
         default:
