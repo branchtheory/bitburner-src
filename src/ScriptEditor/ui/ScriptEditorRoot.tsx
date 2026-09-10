@@ -208,7 +208,7 @@ function Root(props: IProps): React.ReactElement {
       const cleanCode = currentScript.code.replace(/\s/g, "");
       const expectedCleanCode = `/**@param{NS}ns*/exportasyncfunctionmain(ns){while(true){awaitns.hack("n00dles");}}`;
       if (!cleanCode.includes(expectedCleanCode)) {
-        dialogBoxCreate("Copy and paste the code from the tutorial. Don't change it for now.");
+        dialogBoxCreate("Use the code from the tutorial. Don't change it for now.");
         return;
       }
 
