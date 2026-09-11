@@ -175,10 +175,10 @@ export function EarningsElement(props: IProps): React.ReactElement {
         <TableBody>
           {data.map(([a, b]) => (
             <TableRow key={getKeyFromReactElements(a, b)}>
-              <TableCell sx={{ width: "50%" }} classes={{ root: classes.cellNone }}>
+              <TableCell classes={{ root: classes.cellNone }}>
                 <Typography>{a}</Typography>
               </TableCell>
-              <TableCell sx={{ width: "50%" }} align="right" classes={{ root: classes.cellNone }}>
+              <TableCell align="right" classes={{ root: classes.cellNone }}>
                 <Typography>{b}</Typography>
               </TableCell>
             </TableRow>
