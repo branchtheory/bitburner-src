@@ -17,6 +17,7 @@ export function GeneralInfo(props: IProps): React.ReactElement {
         The Hacknet is a global, decentralized network of machines. It is used by hackers around the world to perform
         cyber attacks without the fear of being traced.
         <br />
+        <br />
       </Typography>
       {!props.hasHacknetServers ? (
         <>
