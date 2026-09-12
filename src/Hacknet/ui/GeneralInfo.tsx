@@ -16,29 +16,26 @@ export function GeneralInfo(props: IProps): React.ReactElement {
       <Typography>
         The Hacknet is a global, decentralized network of machines. It is used by hackers around the world to perform
         cyber attacks without the fear of being traced.
+        <br />
       </Typography>
-      <br />
       {!props.hasHacknetServers ? (
         <>
           <Typography>
-            Here you can purchase Hacknet Nodes, specialised machines that contribute resources and computing power to
-            the Hacknet. They allow you to take a small percentage of profits from hacks performed on the network.
+            Here you can purchase Hacknet Nodes, specialized machines that connect and contribute their resources to the
+            Hacknet network. They allow you to take a small percentage of profits from hacks performed on the network.
+            Essentially, you are renting out your Nodes' computing power.
             <br />
             <br />
-            Purchased Hacknet Nodes will passively earn you money. You can upgrade Hacknet Nodes to increase their
-            earnings.
+            Hacknet Nodes passively earn you money, even when you're offline. You can upgrade Hacknet Nodes to increase
+            their earnings.
           </Typography>
         </>
       ) : (
         <>
           <Typography>
-            Here you can purchase Hacknet Servers, an upgraded version of the Hacknet Node. Hacknet Servers earn you
-            hashes by performing computations and operations on the network. Hashes can be spent on a variety of
+            Here you can purchase Hacknet Servers, the upgraded version of Hacknet Nodes. Hacknet Servers perform
+            computations and operations on the network, earning you hashes. Hashes can be spent on a variety of
             upgrades.
-            <br />
-            <br />
-            The number of hashes you can store is limited by the size of your cache pool. If you run out of cache space,
-            surplus hashes will automatically be sold for money.
             <br />
             <br />
             Hacknet Servers can be used to run scripts, just like regular servers. However, running scripts on a Hacknet
