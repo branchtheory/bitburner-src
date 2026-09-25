@@ -9,7 +9,7 @@ export const TerminalHelpText: string[] = [
   " ",
   "    [arg]      optional",
   "    {a|b}      choice (pick one)",
-  "    UPPERCASE  placeholder",
+  "    UPPERCASE  placeholder for a value",
   "    ...        accepts multiple space-separated values",
   " ",
   "NETWORK NAVIGATION",
