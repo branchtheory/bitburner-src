@@ -11,6 +11,18 @@ import { scriptKey } from "../utils/helpers/scriptKey";
 
 import type { ScriptFilePath } from "../Paths/ScriptFilePath";
 
+export function calculateTotalScriptOfflineProduction(
+  production: number,
+  playerPlaytimeSinceLastAug: number,
+  timePassed: number,
+): number {
+  let gain = (production / playerPlaytimeSinceLastAug) * timePassed * CONSTANTS.OfflineHackingIncome;
+  if (!Number.isFinite(production)) {
+    gain = 0;
+  }
+  return gain;
+}
+
 export function scriptCalculateOfflineProduction(
   runningScript: RunningScript,
   playerLastUpdate: number,
@@ -21,26 +33,18 @@ export function scriptCalculateOfflineProduction(
   const lastUpdate = playerLastUpdate;
   const timePassed = Math.max((thisUpdate - lastUpdate) / 1000, 0); //Seconds
 
-  // EXP GAIN
-  //Calculate the "confidence" rating of the script's true exp production. This is based
-  //entirely off of time. We will arbitrarily say that if a script has been running for
-  //4 hours (14400 sec) then we are completely confident in its ability
-  let confidence = runningScript.onlineRunningTime / 14400;
-  if (confidence >= 1) {
-    confidence = 1;
-  }
-  const expGain = confidence * (runningScript.onlineExpGained / runningScript.onlineRunningTime) * timePassed;
-  Player.gainHackingExp(expGain);
+  // EXP AND MONEY GAIN
 
-  // MONEY GAIN
-  // Money for offline script production is given to the player during engine load. In
-  // this script we just update production records both of running scripts and in the
-  // player data.
-  let moneyGain =
-    (runningScript.onlineMoneyMade / playerPlaytimeSinceLastAug) * timePassed * CONSTANTS.OfflineHackingIncome;
-  if (!Number.isFinite(moneyGain)) {
-    moneyGain = 0;
-  }
+  const expGain = calculateTotalScriptOfflineProduction(
+    runningScript.onlineExpGained,
+    playerPlaytimeSinceLastAug,
+    timePassed,
+  );
+  const moneyGain = calculateTotalScriptOfflineProduction(
+    runningScript.onlineMoneyMade,
+    playerPlaytimeSinceLastAug,
+    timePassed,
+  );
   Player.scriptProdSinceLastAug += moneyGain;
 
   // Update script stats

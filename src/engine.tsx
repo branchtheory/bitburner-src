@@ -58,6 +58,7 @@ import { hasDarknetAccess } from "./DarkNet/utils/darknetAuthUtils";
 import { initForeignServers } from "./Server/ServerHelpers";
 import { apr1 } from "./Terminal/commands/apr1";
 import { LastExportBonus } from "./ExportBonus";
+import { calculateTotalScriptOfflineProduction } from "./Script/ScriptHelpers";
 
 declare global {
   // This property is only available in the dev build
@@ -272,12 +273,19 @@ const Engine = {
       tryGeneratingRandomContract((timeOffline * 3) / CONSTANTS.MillisecondsPerTenMinutes);
 
       let offlineReputation = 0;
-      let offlineHackingIncome =
-        (Player.moneySourceA.hacking / Player.playtimeSinceLastAug) * timeOffline * CONSTANTS.OfflineHackingIncome;
-      if (!Number.isFinite(offlineHackingIncome)) {
-        offlineHackingIncome = 0;
-      }
+      const offlineHackingIncome = calculateTotalScriptOfflineProduction(
+        Player.moneySourceA.hacking,
+        Player.playtimeSinceLastAug,
+        timeOffline,
+      );
+      const offlineHExpGain = calculateTotalScriptOfflineProduction(
+        Player.moneySourceA.hacking,
+        Player.playtimeSinceLastAug,
+        timeOffline,
+      );
+
       Player.gainMoney(offlineHackingIncome, "hacking");
+      Player.gainHackingExp(offlineHExpGain);
 
       loadAllRunningScripts(); // This also takes care of offline production for those scripts
 

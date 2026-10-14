@@ -10,6 +10,7 @@ import { CONSTANTS } from "../Constants";
 import { Player } from "../Player";
 import { defaultMultipliers } from "./Multipliers";
 import { calculateExp, calculateSkill } from "./formulas/skill";
+import { ExpSource, ExpTracker } from "../utils/ExpTracker";
 
 // Base class representing a person-like object
 export abstract class Person implements IPerson {
@@ -46,7 +47,7 @@ export abstract class Person implements IPerson {
   /** City that the person is in */
   city: CityName = CityName.Sector12;
 
-  gainHackingExp(exp: number): void {
+  gainHackingExp(exp: number, fromScript = false): void {
     if (isNaN(exp)) {
       console.error("ERR: NaN passed into Player.gainHackingExp()");
       return;
@@ -60,6 +61,10 @@ export abstract class Person implements IPerson {
       this.exp.hacking,
       this.mults.hacking * currentNodeMults.HackingLevelMultiplier,
     );
+
+    if (fromScript) {
+      this.recordMoneySource(money, source);
+    }
   }
 
   gainStrengthExp(exp: number): void {
@@ -255,6 +260,14 @@ export abstract class Person implements IPerson {
   /** Reset all multipliers to 1 */
   resetMultipliers() {
     this.mults = defaultMultipliers();
+  }
+
+  recordScriptHackingExp(amt: number, skill: ExpSource): void {
+    if (!(this.expA instanceof ExpTracker)) {
+      console.warn(`Player.expA was not properly initialized. Resetting`);
+      this.expA = new ExpTracker();
+    }
+    this.expA.record(amt, skill);
   }
 
   abstract travelCostMoneySource(): MoneySource;
