@@ -1091,7 +1091,9 @@ export class Bladeburner implements OperationTeam {
       case BladeburnerActionType.General:
         switch (action.name) {
           case BladeburnerGeneralActionName.Training: {
-            this.stamina -= 0.5 * BladeburnerConstants.BaseStaminaLoss;
+            if (isPlayer) {
+              this.stamina -= 0.5 * BladeburnerConstants.BaseStaminaLoss;
+            }
             const strExpGain = 30 * person.mults.strength_exp,
               defExpGain = 30 * person.mults.defense_exp,
               dexExpGain = 30 * person.mults.dexterity_exp,
