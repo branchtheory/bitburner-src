@@ -76,7 +76,7 @@ function MultiplierTable(props: MultTableProps): React.ReactElement {
             <Tooltip title={<span>{tooltipText}</span>}>
               <span>
                 {mult}
-                <Info sx={{ ml: 1, fontsize: "1rem", verticalAlign: "middle" }} color="info" />
+                <Info sx={{ ml: 1, fontSize: "1.25rem", verticalAlign: "middle" }} color="info" />
               </span>
             </Tooltip>
           ) : (
