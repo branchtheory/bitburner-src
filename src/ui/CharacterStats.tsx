@@ -562,7 +562,7 @@ export function CharacterStats(): React.ReactElement {
                     value: Player.mults.bladeburner_stamina_gain,
                   },
                   {
-                    mult: "Bladeburner Field Analysis Effectiveness",
+                    mult: "Bladeburner Field Analysis",
                     value: Player.mults.bladeburner_analysis,
                   },
                 ]}

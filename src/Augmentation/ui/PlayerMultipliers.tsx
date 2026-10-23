@@ -298,7 +298,7 @@ export function PlayerMultipliers(): React.ReactElement {
         augmented: Player.mults.bladeburner_stamina_gain * mults.bladeburner_stamina_gain,
       },
       {
-        mult: "Bladeburner Field Analysis Effectiveness",
+        mult: "Bladeburner Field Analysis",
         current: Player.mults.bladeburner_analysis,
         augmented: Player.mults.bladeburner_analysis * mults.bladeburner_analysis,
       },
