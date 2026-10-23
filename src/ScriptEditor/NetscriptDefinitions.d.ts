@@ -522,7 +522,7 @@ interface HackingMultipliers {
   chance: number;
   /** Player's hacking speed multiplier. */
   speed: number;
-  /** Player's hack() money multiplier. */
+  /** Player's hacking money stolen multiplier. */
   money: number;
   /** Player's grow() power multiplier */
   growth: number;

@@ -88,7 +88,7 @@ number
 
 </td><td>
 
-Player's hack() money multiplier.
+Player's hacking money stolen multiplier.
 
 
 </td></tr>

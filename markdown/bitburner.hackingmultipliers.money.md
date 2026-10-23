@@ -4,7 +4,7 @@
 
 ## HackingMultipliers.money property
 
-Player's hack() money multiplier.
+Player's hacking money stolen multiplier.
 
 **Signature:**
 
